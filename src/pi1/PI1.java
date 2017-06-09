@@ -1,5 +1,6 @@
 package pi1;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class PI1 {
@@ -13,9 +14,9 @@ public class PI1 {
         System.out.println("\n****JOGO DA FORCA ****");
 
         System.out.println("\n*****INTRUÇÕES:*****\n");
-        System.out.println("Esse jogo e para ser jogado de duas pessoas do seguinte modo: a primeira pessoa\n");
-        System.out.println("Player 1 entrará com a palavra desejada, após inserir a\npalavra confirmar se esta correta e o jogo se iniciará");
-        System.out.println("Player 2 terá 5 tentativas para acertar a palavra inserida pelo Player 1.\n");
+        System.out.println("Esse jogo é para ser jogado de uma pessoa. \n");
+        System.out.println("Player escolherá um número, e uma palavra será escolhida.");
+        System.out.println("Player terá 5 tentativas para acertar a palavra escolhida.\n");
 
         System.out.println("    -----¬                          ");
         System.out.println("    |   _|_                         ");
@@ -106,11 +107,39 @@ public class PI1 {
 
     public static String iniciarFrase() {
         //Método para captura da frase.
-        System.out.print("Coloque uma frase para o jogo começar: ");
+        Scanner leito = new Scanner(System.in);        
+               
+        String[] palavra = new String[10];
+        palavra[0] = "banana";
+        palavra[1] = "goiaba";
+        palavra[2] = "lichia";
+        palavra[3] = "outono";
+        palavra[4] = "primavera";
+        palavra[5] = "inverno";
+        palavra[6] = "rosa";
+        palavra[7] = "vermelho";
+        palavra[8] = "verde";
+        palavra[9] = "amarelo";        
         
+        int i = 0;
+        System.out.println("Escolha um número de 0 a 9:");
+        i = leito.nextInt();
+        String palavraescolhida = palavra[i];
         
-        return leitor.nextLine();
-
+        for(int j = 0;j<80;j++){
+            System.out.println("");
+        }
+        
+        System.out.println("Dica:");
+        if(i == 1 || i == 0 || i == 2){
+            System.out.println("Fruta ");
+        }else if(i == 3 || i == 4 || i == 5){
+            System.out.println("Estação do ano ");
+        }else if(i == 6 || i == 7 || i == 8 || i == 9){
+            System.out.println("Cor ");
+        }
+        
+        return palavraescolhida;
     }
     
     public static void pulaLinha(){
@@ -153,7 +182,7 @@ public class PI1 {
         tabuleiro();
 
         String frase = iniciarFrase();
-        pulaLinha();
+        
         char[] fraseBranco = fraseBranco(frase);
         
         for (int i = 0; i < fraseBranco.length; i++) {
@@ -211,4 +240,6 @@ public class PI1 {
 
     
     
+
+
 
